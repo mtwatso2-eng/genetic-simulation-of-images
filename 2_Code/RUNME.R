@@ -12,7 +12,7 @@ use_condaenv("imageSimulation")
 python <- import_from_path('python_functions')
 
 # load original (not predicted) embeddings of original images
-embeddings <- '/Users/mtwatson/Desktop/Strawberry data for simulation/other_files/embeddings.csv' %>%
+embeddings <- '3_Extra/embeddings.csv' %>%
   vroom() %>%
   as.matrix()
 
