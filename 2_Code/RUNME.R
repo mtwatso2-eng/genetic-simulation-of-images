@@ -1,15 +1,17 @@
-require(tidyverse); require(reticulate); require(vroom)
-
-# run the following in command line so Python functions work
-# cd <path to genetic-simulation-of-images>
+# run the following in command line so Python functions work:
+# cd <path to genetic-simulation-of-images-main>
 # conda create -n imageSimulation python=3.9
 # conda activate imageSimulation
 # pip install -r requirements.txt
 
+# Don't forget to unzip 1_Data !
+
+require(tidyverse); require(reticulate); require(vroom)
+
 # setup
-setwd("<path to genetic-simulation-of-images>")
+setwd("<path to genetic-simulation-of-images-main>")
 use_condaenv("imageSimulation")
-python <- import_from_path('python_functions')
+python <- import_from_path('python_functions', "2_Code")
 
 # load original (not predicted) embeddings of original images
 embeddings <- '3_Extra/embeddings.csv' %>%
@@ -36,4 +38,3 @@ for(i in 1:100){
   redness <- round(python$getRedness(image))
   python$show_image(image, title = paste("Redness:", redness))
 }
-
