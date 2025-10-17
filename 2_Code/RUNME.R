@@ -286,3 +286,17 @@ varRedness
 dev.off() # to reset par() options
 matplot(y = meanRedness, x = 0:nGenerations, type = "l")
 matplot(y = varRedness, x = 0:nGenerations, type = "l")
+
+
+# Average image
+showImage(getImage(colMeans(basePop@gv)))
+showImage(getImage(colMeans(randomPop@gv)))
+showImage(getImage(colMeans(selectedPop@gv)))
+# k random images
+k <- 5
+for (i in sample(1:nInd, k)) {
+  showOneImage(getOneImage(randomPop@gv[i, ]))
+}
+for (i in sample(1:nInd, k)) {
+  showOneImage(getOneImage(selectedPop@gv[i, ]))
+}
