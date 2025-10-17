@@ -287,7 +287,6 @@ dev.off() # to reset par() options
 matplot(y = meanRedness, x = 0:nGenerations, type = "l")
 matplot(y = varRedness, x = 0:nGenerations, type = "l")
 
-
 # Average image
 showImage(getImage(colMeans(basePop@gv)))
 showImage(getImage(colMeans(randomPop@gv)))
@@ -300,3 +299,10 @@ for (i in sample(1:nInd, k)) {
 for (i in sample(1:nInd, k)) {
   showOneImage(getOneImage(selectedPop@gv[i, ]))
 }
+
+# Summary of gv for embeddings
+round(meanG(basePop), 2)
+round(meanG(selectedPop), 2)
+
+image(varG(basePop))
+image(varG(selectedPop))
