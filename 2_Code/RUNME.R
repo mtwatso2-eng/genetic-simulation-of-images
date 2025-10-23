@@ -103,13 +103,9 @@ getRedness <- function(x) {
     n <- 1
     x <- matrix(x, nrow = 1)
   }
-  ret <- rep(NA, times = n)
-  for (i in 1:n) {
-    image <- getOneImage(x[i, ])
-    ret[i] <- round(python$getRedness(image))
-    # python$show_image(image, title = paste("Redness:", redness))
-  }
-  return(ret)
+  images <- python$batch_embeddings_to_images(x)
+  rednesses <- python$batch_getRedness(images)
+  return (rednesses)
 }
 
 library(AlphaSimR)
